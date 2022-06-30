@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve('aaa');
+            }, 1000)
+        }).then(res => {
+            console.log(res, '第一');
+            // 直接调用Promise的方法
+            // return Promise.resolve(res + '111')
+
+            // 若失败
+            // return Promise.reject('error message')
+
+            // 或者写为,手动抛出异常
+            throw 'error message'
+
+        }).then(res => {
+            console.log(res,'第二');
+            // 也可直接省略Promise
+            return res+'222'
+        }).then(res=>{
+            console.log(res,'第三')
+        }).catch(err=>{
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>

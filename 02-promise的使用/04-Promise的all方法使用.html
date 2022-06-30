@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        Promise.all([
+            new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve('result1')
+                },2000)
+            }),
+            new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve('result2')
+                },1000)
+            })
+        ]).then(result=>{
+            // result[0]存放的是第一个请求的结果
+            // result[1]存放的是第二个请求的结果
+            console.log(result)
+        })
+    </script>
+</body>
+</html>
